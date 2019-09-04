@@ -1,0 +1,35 @@
+{
+  "rseApp": {
+    "alipayUser": {
+      "home": {
+        "title": "Alipay Users",
+        "createLabel": "建立一筆新的 Alipay User",
+        "createOrEditLabel": "建立或編輯 Alipay User",
+        "notFound": "No Alipay Users found"
+      },
+      "created": "新的 Alipay User 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Alipay User 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Alipay User 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Alipay User {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Alipay User"
+      },
+      "userId": "User Id",
+      "avatar": "Avatar",
+      "nickName": "Nick Name",
+      "mobile": "Mobile",
+      "gender": "Gender",
+      "countryCode": "Country Code",
+      "province": "Province",
+      "city": "City",
+      "accessToken": "Access Token",
+      "authTokenType": "Auth Token Type",
+      "expiresIn": "Expires In",
+      "alipayUserId": "Alipay User Id",
+      "reExpiresIn": "Re Expires In",
+      "refreshToken": "Refresh Token"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+    "name": "OrderItem",
+    "fields": [
+        {
+            "fieldName": "unitPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "actuallyPaid",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "rightsProtectionStatus",
+            "fieldType": "RightsProtectionStatus",
+            "fieldValues": "Normal,Objection"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "itemLeaseCycle",
+            "otherEntityRelationshipName": "orderItem",
+            "relationshipName": "itemLeaseCycle"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "commodity",
+            "otherEntityRelationshipName": "orderItem",
+            "relationshipName": "commodity",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userOrder",
+            "otherEntityRelationshipName": "orderItem",
+            "relationshipName": "userOrder",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094203",
+    "entityTableName": "order_item",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

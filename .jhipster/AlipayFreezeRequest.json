@@ -1,0 +1,60 @@
+{
+    "name": "AlipayFreezeRequest",
+    "fields": [
+        {
+            "fieldName": "orderTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outOrderNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outRequestNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payeeUserId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payeeLogonId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "extraParam",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "notifyUrl",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userOrder",
+            "otherEntityRelationshipName": "alipayFreezeRequest",
+            "relationshipName": "userOrder",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094155",
+    "entityTableName": "alipay_freeze_request",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

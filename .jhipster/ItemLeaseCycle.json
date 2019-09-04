@@ -1,0 +1,64 @@
+{
+    "name": "ItemLeaseCycle",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "endTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "inventory",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "numberOfPeriods",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "deposit",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "creditExemption",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "rentReceivedNumberOfPeriods",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "debitedAmount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "nextBillDay",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orderItem",
+            "otherEntityRelationshipName": "itemLeaseCycle",
+            "relationshipName": "orderItem",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094204",
+    "entityTableName": "item_lease_cycle",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

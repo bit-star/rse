@@ -1,0 +1,135 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="rseApp.alipayFundAuthInfo.home.title">Alipay Fund Auth Infos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-alipay-fund-auth-info-rse" [routerLink]="['/alipay-fund-auth-info-rse/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="rseApp.alipayFundAuthInfo.home.createLabel">
+            Create a new Alipay Fund Auth Info
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="alipayFundAuthInfos?.length === 0">
+        <span jhiTranslate="rseApp.alipayFundAuthInfo.home.notFound">No alipayFundAuthInfos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="alipayFundAuthInfos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="code"><span jhiTranslate="rseApp.alipayFundAuthInfo.code">Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="msg"><span jhiTranslate="rseApp.alipayFundAuthInfo.msg">Msg</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="subCode"><span jhiTranslate="rseApp.alipayFundAuthInfo.subCode">Sub Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="subMsg"><span jhiTranslate="rseApp.alipayFundAuthInfo.subMsg">Sub Msg</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="body"><span jhiTranslate="rseApp.alipayFundAuthInfo.body">Body</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="paramsStr"><span jhiTranslate="rseApp.alipayFundAuthInfo.paramsStr">Params Str</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="amount"><span jhiTranslate="rseApp.alipayFundAuthInfo.amount">Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="authNo"><span jhiTranslate="rseApp.alipayFundAuthInfo.authNo">Auth No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="creditAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.creditAmount">Credit Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="extraParam"><span jhiTranslate="rseApp.alipayFundAuthInfo.extraParam">Extra Param</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fundAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.fundAmount">Fund Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gmtCreateStr"><span jhiTranslate="rseApp.alipayFundAuthInfo.gmtCreateStr">Gmt Create Str</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gmtTransStr"><span jhiTranslate="rseApp.alipayFundAuthInfo.gmtTransStr">Gmt Trans Str</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="operationId"><span jhiTranslate="rseApp.alipayFundAuthInfo.operationId">Operation Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="operationType"><span jhiTranslate="rseApp.alipayFundAuthInfo.operationType">Operation Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderTitle"><span jhiTranslate="rseApp.alipayFundAuthInfo.orderTitle">Order Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="outOrderNo"><span jhiTranslate="rseApp.alipayFundAuthInfo.outOrderNo">Out Order No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="outRequestNo"><span jhiTranslate="rseApp.alipayFundAuthInfo.outRequestNo">Out Request No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="payerLogonId"><span jhiTranslate="rseApp.alipayFundAuthInfo.payerLogonId">Payer Logon Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="payerUserId"><span jhiTranslate="rseApp.alipayFundAuthInfo.payerUserId">Payer User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="preAuthType"><span jhiTranslate="rseApp.alipayFundAuthInfo.preAuthType">Pre Auth Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="remark"><span jhiTranslate="rseApp.alipayFundAuthInfo.remark">Remark</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="restAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.restAmount">Rest Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="restCreditAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.restCreditAmount">Rest Credit Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="restFundAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.restFundAmount">Rest Fund Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="rseApp.alipayFundAuthInfo.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalFreezeAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeAmount">Total Freeze Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalFreezeCreditAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeCreditAmount">Total Freeze Credit Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalFreezeFundAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeFundAmount">Total Freeze Fund Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalPayAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.totalPayAmount">Total Pay Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalPayCreditAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.totalPayCreditAmount">Total Pay Credit Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalPayFundAmount"><span jhiTranslate="rseApp.alipayFundAuthInfo.totalPayFundAmount">Total Pay Fund Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="transCurrency"><span jhiTranslate="rseApp.alipayFundAuthInfo.transCurrency">Trans Currency</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userOrder.id"><span jhiTranslate="rseApp.alipayFundAuthInfo.userOrder">User Order</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let alipayFundAuthInfo of alipayFundAuthInfos ;trackBy: trackId">
+                <td><a [routerLink]="['/alipay-fund-auth-info-rse', alipayFundAuthInfo.id, 'view' ]">{{alipayFundAuthInfo.id}}</a></td>
+                <td>{{alipayFundAuthInfo.code}}</td>
+                <td>{{alipayFundAuthInfo.msg}}</td>
+                <td>{{alipayFundAuthInfo.subCode}}</td>
+                <td>{{alipayFundAuthInfo.subMsg}}</td>
+                <td>{{alipayFundAuthInfo.body}}</td>
+                <td>{{alipayFundAuthInfo.paramsStr}}</td>
+                <td>{{alipayFundAuthInfo.amount}}</td>
+                <td>{{alipayFundAuthInfo.authNo}}</td>
+                <td>{{alipayFundAuthInfo.creditAmount}}</td>
+                <td>{{alipayFundAuthInfo.extraParam}}</td>
+                <td>{{alipayFundAuthInfo.fundAmount}}</td>
+                <td>{{alipayFundAuthInfo.gmtCreateStr}}</td>
+                <td>{{alipayFundAuthInfo.gmtTransStr}}</td>
+                <td>{{alipayFundAuthInfo.operationId}}</td>
+                <td>{{alipayFundAuthInfo.operationType}}</td>
+                <td>{{alipayFundAuthInfo.orderTitle}}</td>
+                <td>{{alipayFundAuthInfo.outOrderNo}}</td>
+                <td>{{alipayFundAuthInfo.outRequestNo}}</td>
+                <td>{{alipayFundAuthInfo.payerLogonId}}</td>
+                <td>{{alipayFundAuthInfo.payerUserId}}</td>
+                <td>{{alipayFundAuthInfo.preAuthType}}</td>
+                <td>{{alipayFundAuthInfo.remark}}</td>
+                <td>{{alipayFundAuthInfo.restAmount}}</td>
+                <td>{{alipayFundAuthInfo.restCreditAmount}}</td>
+                <td>{{alipayFundAuthInfo.restFundAmount}}</td>
+                <td>{{alipayFundAuthInfo.status}}</td>
+                <td>{{alipayFundAuthInfo.totalFreezeAmount}}</td>
+                <td>{{alipayFundAuthInfo.totalFreezeCreditAmount}}</td>
+                <td>{{alipayFundAuthInfo.totalFreezeFundAmount}}</td>
+                <td>{{alipayFundAuthInfo.totalPayAmount}}</td>
+                <td>{{alipayFundAuthInfo.totalPayCreditAmount}}</td>
+                <td>{{alipayFundAuthInfo.totalPayFundAmount}}</td>
+                <td>{{alipayFundAuthInfo.transCurrency}}</td>
+                <td>
+                    <div *ngIf="alipayFundAuthInfo.userOrder">
+                        <a [routerLink]="['/user-order-rse', alipayFundAuthInfo.userOrder?.id, 'view' ]" >{{alipayFundAuthInfo.userOrder?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/alipay-fund-auth-info-rse', alipayFundAuthInfo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/alipay-fund-auth-info-rse', alipayFundAuthInfo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/alipay-fund-auth-info-rse', { outlets: { popup: alipayFundAuthInfo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="alipayFundAuthInfos?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

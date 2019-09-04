@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-alipay-freeze-request-rse-heading" jhiTranslate="rseApp.alipayFreezeRequest.home.createOrEditLabel">Create or edit a Alipay Freeze Request</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.orderTitle" for="field_orderTitle">Order Title</label>
+                    <input type="text" class="form-control" name="orderTitle" id="field_orderTitle"
+                           formControlName="orderTitle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.outOrderNo" for="field_outOrderNo">Out Order No</label>
+                    <input type="text" class="form-control" name="outOrderNo" id="field_outOrderNo"
+                           formControlName="outOrderNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.outRequestNo" for="field_outRequestNo">Out Request No</label>
+                    <input type="text" class="form-control" name="outRequestNo" id="field_outRequestNo"
+                           formControlName="outRequestNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.payeeUserId" for="field_payeeUserId">Payee User Id</label>
+                    <input type="text" class="form-control" name="payeeUserId" id="field_payeeUserId"
+                           formControlName="payeeUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.payeeLogonId" for="field_payeeLogonId">Payee Logon Id</label>
+                    <input type="text" class="form-control" name="payeeLogonId" id="field_payeeLogonId"
+                           formControlName="payeeLogonId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.productCode" for="field_productCode">Product Code</label>
+                    <input type="text" class="form-control" name="productCode" id="field_productCode"
+                           formControlName="productCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.amount" for="field_amount">Amount</label>
+                    <input type="text" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.extraParam" for="field_extraParam">Extra Param</label>
+                    <input type="text" class="form-control" name="extraParam" id="field_extraParam"
+                           formControlName="extraParam"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.notifyUrl" for="field_notifyUrl">Notify Url</label>
+                    <input type="text" class="form-control" name="notifyUrl" id="field_notifyUrl"
+                           formControlName="notifyUrl"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeRequest.userOrder" for="field_userOrder">User Order</label>
+                    <select class="form-control" id="field_userOrder" name="userOrder" formControlName="userOrder">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOrderOption.id === editForm.get('userOrder').value?.id ? editForm.get('userOrder').value : userOrderOption" *ngFor="let userOrderOption of userorders; trackBy: trackUserOrderById">{{userOrderOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderItem">
+            <h2><span jhiTranslate="rseApp.orderItem.detail.title">Order Item</span> {{orderItem.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.orderItem.unitPrice">Unit Price</span></dt>
+                <dd>
+                    <span>{{orderItem.unitPrice}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.orderItem.actuallyPaid">Actually Paid</span></dt>
+                <dd>
+                    <span>{{orderItem.actuallyPaid}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.orderItem.rightsProtectionStatus">Rights Protection Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'rseApp.RightsProtectionStatus.' + orderItem.rightsProtectionStatus}}">{{orderItem.rightsProtectionStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.orderItem.commodity">Commodity</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.commodity">
+                        <a [routerLink]="['/commodity-rse', orderItem.commodity?.id, 'view']">{{orderItem.commodity?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="rseApp.orderItem.userOrder">User Order</span></dt>
+                <dd>
+                    <div *ngIf="orderItem.userOrder">
+                        <a [routerLink]="['/user-order-rse', orderItem.userOrder?.id, 'view']">{{orderItem.userOrder?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-item-rse', orderItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

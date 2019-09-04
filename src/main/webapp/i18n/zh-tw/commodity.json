@@ -1,0 +1,39 @@
+{
+  "rseApp": {
+    "commodity": {
+      "home": {
+        "title": "Commodities",
+        "createLabel": "建立一筆新的 Commodity",
+        "createOrEditLabel": "建立或編輯 Commodity",
+        "notFound": "No Commodities found"
+      },
+      "created": "新的 Commodity 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Commodity 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Commodity 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Commodity {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Commodity"
+      },
+      "name": "Name",
+      "remark": "Remark",
+      "dayRent": "Day Rent",
+      "weeklyRent": "Weekly Rent",
+      "monthlyRent": "Monthly Rent",
+      "deposit": "Deposit",
+      "rentalMethod": "Rental Method",
+      "maxRent": "Max Rent",
+      "inventory": "Inventory",
+      "deliveryMethod": "Delivery Method",
+      "status": "Status",
+      "leaseMustRead": "Lease Must Read",
+      "desciption": "Desciption",
+      "photo": "Photo",
+      "specification": "Specification",
+      "tag": "Tag",
+      "category": "Category",
+      "orderItem": "Order Item"
+    }
+  }
+}

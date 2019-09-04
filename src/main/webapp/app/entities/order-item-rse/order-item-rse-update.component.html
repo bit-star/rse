@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-order-item-rse-heading" jhiTranslate="rseApp.orderItem.home.createOrEditLabel">Create or edit a Order Item</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.orderItem.unitPrice" for="field_unitPrice">Unit Price</label>
+                    <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                           formControlName="unitPrice"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.orderItem.actuallyPaid" for="field_actuallyPaid">Actually Paid</label>
+                    <input type="number" class="form-control" name="actuallyPaid" id="field_actuallyPaid"
+                           formControlName="actuallyPaid"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.orderItem.rightsProtectionStatus" for="field_rightsProtectionStatus">Rights Protection Status</label>
+                    <select class="form-control" name="rightsProtectionStatus" formControlName="rightsProtectionStatus" id="field_rightsProtectionStatus">
+                        <option value="Normal">{{'rseApp.RightsProtectionStatus.Normal' | translate}}</option>
+                        <option value="Objection">{{'rseApp.RightsProtectionStatus.Objection' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.orderItem.commodity" for="field_commodity">Commodity</label>
+                    <select class="form-control" id="field_commodity" name="commodity" formControlName="commodity">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="commodityOption.id === editForm.get('commodity').value?.id ? editForm.get('commodity').value : commodityOption" *ngFor="let commodityOption of commodities; trackBy: trackCommodityById">{{commodityOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.orderItem.userOrder" for="field_userOrder">User Order</label>
+                    <select class="form-control" id="field_userOrder" name="userOrder" formControlName="userOrder">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOrderOption.id === editForm.get('userOrder').value?.id ? editForm.get('userOrder').value : userOrderOption" *ngFor="let userOrderOption of userorders; trackBy: trackUserOrderById">{{userOrderOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

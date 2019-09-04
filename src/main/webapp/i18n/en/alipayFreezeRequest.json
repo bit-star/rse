@@ -1,0 +1,31 @@
+{
+  "rseApp": {
+    "alipayFreezeRequest": {
+      "home": {
+        "title": "Alipay Freeze Requests",
+        "createLabel": "Create a new Alipay Freeze Request",
+        "createOrEditLabel": "Create or edit a Alipay Freeze Request",
+        "notFound": "No Alipay Freeze Requests found"
+      },
+      "created": "A new Alipay Freeze Request is created with identifier {{ param }}",
+      "updated": "A Alipay Freeze Request is updated with identifier {{ param }}",
+      "deleted": "A Alipay Freeze Request is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Alipay Freeze Request {{ id }}?"
+      },
+      "detail": {
+        "title": "Alipay Freeze Request"
+      },
+      "orderTitle": "Order Title",
+      "outOrderNo": "Out Order No",
+      "outRequestNo": "Out Request No",
+      "payeeUserId": "Payee User Id",
+      "payeeLogonId": "Payee Logon Id",
+      "productCode": "Product Code",
+      "amount": "Amount",
+      "extraParam": "Extra Param",
+      "notifyUrl": "Notify Url",
+      "userOrder": "User Order"
+    }
+  }
+}

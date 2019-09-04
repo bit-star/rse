@@ -1,0 +1,32 @@
+{
+  "rseApp": {
+    "itemLeaseCycle": {
+      "home": {
+        "title": "Item Lease Cycles",
+        "createLabel": "Create a new Item Lease Cycle",
+        "createOrEditLabel": "Create or edit a Item Lease Cycle",
+        "notFound": "No Item Lease Cycles found"
+      },
+      "created": "A new Item Lease Cycle is created with identifier {{ param }}",
+      "updated": "A Item Lease Cycle is updated with identifier {{ param }}",
+      "deleted": "A Item Lease Cycle is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Item Lease Cycle {{ id }}?"
+      },
+      "detail": {
+        "title": "Item Lease Cycle"
+      },
+      "name": "Name",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "inventory": "Inventory",
+      "numberOfPeriods": "Number Of Periods",
+      "deposit": "Deposit",
+      "creditExemption": "Credit Exemption",
+      "rentReceivedNumberOfPeriods": "Rent Received Number Of Periods",
+      "debitedAmount": "Debited Amount",
+      "nextBillDay": "Next Bill Day",
+      "orderItem": "Order Item"
+    }
+  }
+}

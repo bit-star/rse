@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemLeaseCycle">
+            <h2><span jhiTranslate="rseApp.itemLeaseCycle.detail.title">Item Lease Cycle</span> {{itemLeaseCycle.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.name">Name</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.startTime">Start Time</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.startTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.endTime">End Time</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.endTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.inventory">Inventory</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.inventory}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.numberOfPeriods">Number Of Periods</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.numberOfPeriods}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.deposit">Deposit</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.deposit}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.creditExemption">Credit Exemption</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.creditExemption}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.rentReceivedNumberOfPeriods">Rent Received Number Of Periods</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.rentReceivedNumberOfPeriods}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.debitedAmount">Debited Amount</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.debitedAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.nextBillDay">Next Bill Day</span></dt>
+                <dd>
+                    <span>{{itemLeaseCycle.nextBillDay}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.itemLeaseCycle.orderItem">Order Item</span></dt>
+                <dd>
+                    <div *ngIf="itemLeaseCycle.orderItem">
+                        <a [routerLink]="['/order-item-rse', itemLeaseCycle.orderItem?.id, 'view']">{{itemLeaseCycle.orderItem?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-lease-cycle-rse', itemLeaseCycle.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

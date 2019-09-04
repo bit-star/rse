@@ -1,0 +1,114 @@
+{
+    "name": "UserOrder",
+    "fields": [
+        {
+            "fieldName": "orderNo",
+            "javadoc": "订单编号",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "requestNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "OrderStatus",
+            "fieldValues": "PendingPayment,PendingConfirming,Stocking,Shipped,Arrived,ToBeReturned,Returning,Completed,BeExpired,HasBoughtOut,Closed"
+        },
+        {
+            "fieldName": "receiver",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "province",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "region",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "storeName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logisticsCompany",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "shipmentNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paymentMethod",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "freight",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "processingOpinions",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orderItem",
+            "otherEntityRelationshipName": "userOrder",
+            "relationshipName": "orderItem"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "alipayFreezeRequest",
+            "otherEntityRelationshipName": "userOrder",
+            "relationshipName": "alipayFreezeRequest"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "alipayFreezeResponse",
+            "otherEntityRelationshipName": "userOrder",
+            "relationshipName": "alipayFreezeResponse"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "alipayFundAuthInfo",
+            "otherEntityRelationshipName": "userOrder",
+            "relationshipName": "alipayFundAuthInfo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "userOrder",
+            "relationshipName": "user",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094202",
+    "entityTableName": "user_order",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

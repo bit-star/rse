@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="userOrder">
+            <h2><span jhiTranslate="rseApp.userOrder.detail.title">User Order</span> {{userOrder.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.userOrder.orderNo" [ngbTooltip]="'rseApp.userOrder.help.orderNo' | translate">Order No</span></dt>
+                <dd>
+                    <span>{{userOrder.orderNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.requestNo">Request No</span></dt>
+                <dd>
+                    <span>{{userOrder.requestNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'rseApp.OrderStatus.' + userOrder.status}}">{{userOrder.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.receiver">Receiver</span></dt>
+                <dd>
+                    <span>{{userOrder.receiver}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.mobile">Mobile</span></dt>
+                <dd>
+                    <span>{{userOrder.mobile}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.province">Province</span></dt>
+                <dd>
+                    <span>{{userOrder.province}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.city">City</span></dt>
+                <dd>
+                    <span>{{userOrder.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.region">Region</span></dt>
+                <dd>
+                    <span>{{userOrder.region}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.address">Address</span></dt>
+                <dd>
+                    <span>{{userOrder.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.storeName">Store Name</span></dt>
+                <dd>
+                    <span>{{userOrder.storeName}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.logisticsCompany">Logistics Company</span></dt>
+                <dd>
+                    <span>{{userOrder.logisticsCompany}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.shipmentNumber">Shipment Number</span></dt>
+                <dd>
+                    <span>{{userOrder.shipmentNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.paymentMethod">Payment Method</span></dt>
+                <dd>
+                    <span>{{userOrder.paymentMethod}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.freight">Freight</span></dt>
+                <dd>
+                    <span>{{userOrder.freight}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.description">Description</span></dt>
+                <dd>
+                    <span>{{userOrder.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.processingOpinions">Processing Opinions</span></dt>
+                <dd>
+                    <span>{{userOrder.processingOpinions}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.userOrder.user">User</span></dt>
+                <dd>
+                    {{userOrder.user?.id}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/user-order-rse', userOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

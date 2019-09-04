@@ -1,0 +1,116 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-alipay-freeze-response-rse-heading" jhiTranslate="rseApp.alipayFreezeResponse.home.createOrEditLabel">Create or edit a Alipay Freeze Response</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.msg" for="field_msg">Msg</label>
+                    <input type="text" class="form-control" name="msg" id="field_msg"
+                           formControlName="msg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.subCode" for="field_subCode">Sub Code</label>
+                    <input type="text" class="form-control" name="subCode" id="field_subCode"
+                           formControlName="subCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.subMsg" for="field_subMsg">Sub Msg</label>
+                    <input type="text" class="form-control" name="subMsg" id="field_subMsg"
+                           formControlName="subMsg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.body" for="field_body">Body</label>
+                    <input type="text" class="form-control" name="body" id="field_body"
+                           formControlName="body"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.paramsStr" for="field_paramsStr">Params Str</label>
+                    <input type="text" class="form-control" name="paramsStr" id="field_paramsStr"
+                           formControlName="paramsStr"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.amount" for="field_amount">Amount</label>
+                    <input type="text" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.authNo" for="field_authNo">Auth No</label>
+                    <input type="text" class="form-control" name="authNo" id="field_authNo"
+                           formControlName="authNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.creditAmount" for="field_creditAmount">Credit Amount</label>
+                    <input type="text" class="form-control" name="creditAmount" id="field_creditAmount"
+                           formControlName="creditAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.fundAmount" for="field_fundAmount">Fund Amount</label>
+                    <input type="text" class="form-control" name="fundAmount" id="field_fundAmount"
+                           formControlName="fundAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.gmtTrans" for="field_gmtTrans">Gmt Trans</label>
+                    <input type="text" class="form-control" name="gmtTrans" id="field_gmtTrans"
+                           formControlName="gmtTrans"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.operationId" for="field_operationId">Operation Id</label>
+                    <input type="text" class="form-control" name="operationId" id="field_operationId"
+                           formControlName="operationId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.outOrderNo" for="field_outOrderNo">Out Order No</label>
+                    <input type="text" class="form-control" name="outOrderNo" id="field_outOrderNo"
+                           formControlName="outOrderNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.outRequestNo" for="field_outRequestNo">Out Request No</label>
+                    <input type="text" class="form-control" name="outRequestNo" id="field_outRequestNo"
+                           formControlName="outRequestNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.payerUserId" for="field_payerUserId">Payer User Id</label>
+                    <input type="text" class="form-control" name="payerUserId" id="field_payerUserId"
+                           formControlName="payerUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.preAuthType" for="field_preAuthType">Pre Auth Type</label>
+                    <input type="text" class="form-control" name="preAuthType" id="field_preAuthType"
+                           formControlName="preAuthType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFreezeResponse.userOrder" for="field_userOrder">User Order</label>
+                    <select class="form-control" id="field_userOrder" name="userOrder" formControlName="userOrder">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOrderOption.id === editForm.get('userOrder').value?.id ? editForm.get('userOrder').value : userOrderOption" *ngFor="let userOrderOption of userorders; trackBy: trackUserOrderById">{{userOrderOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

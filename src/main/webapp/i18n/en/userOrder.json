@@ -1,0 +1,45 @@
+{
+  "rseApp": {
+    "userOrder": {
+      "home": {
+        "title": "User Orders",
+        "createLabel": "Create a new User Order",
+        "createOrEditLabel": "Create or edit a User Order",
+        "notFound": "No User Orders found"
+      },
+      "created": "A new User Order is created with identifier {{ param }}",
+      "updated": "A User Order is updated with identifier {{ param }}",
+      "deleted": "A User Order is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User Order {{ id }}?"
+      },
+      "detail": {
+        "title": "User Order"
+      },
+      "orderNo": "Order No",
+      "requestNo": "Request No",
+      "status": "Status",
+      "receiver": "Receiver",
+      "mobile": "Mobile",
+      "province": "Province",
+      "city": "City",
+      "region": "Region",
+      "address": "Address",
+      "storeName": "Store Name",
+      "logisticsCompany": "Logistics Company",
+      "shipmentNumber": "Shipment Number",
+      "paymentMethod": "Payment Method",
+      "freight": "Freight",
+      "description": "Description",
+      "processingOpinions": "Processing Opinions",
+      "orderItem": "Order Item",
+      "alipayFreezeRequest": "Alipay Freeze Request",
+      "alipayFreezeResponse": "Alipay Freeze Response",
+      "alipayFundAuthInfo": "Alipay Fund Auth Info",
+      "user": "User",
+      "help": {
+        "orderNo": "订单编号"
+      }
+    }
+  }
+}

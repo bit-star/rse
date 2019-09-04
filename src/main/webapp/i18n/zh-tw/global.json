@@ -7,6 +7,19 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "實體",
+        "alipayFundAuthInfoRse": "Alipay Fund Auth Info",
+        "alipayFreezeRequestRse": "Alipay Freeze Request",
+        "alipayFreezeResponseRse": "Alipay Freeze Response",
+        "shippingAddressRse": "Shipping Address",
+        "commodityRse": "Commodity",
+        "categoryRse": "Category",
+        "photoRse": "Photo",
+        "specificationRse": "Specification",
+        "userOrderRse": "User Order",
+        "orderItemRse": "Order Item",
+        "itemLeaseCycleRse": "Item Lease Cycle",
+        "alipayUserRse": "Alipay User",
+        "tagRse": "Tag",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

@@ -1,0 +1,39 @@
+{
+  "rseApp": {
+    "commodity": {
+      "home": {
+        "title": "Commodities",
+        "createLabel": "Create a new Commodity",
+        "createOrEditLabel": "Create or edit a Commodity",
+        "notFound": "No Commodities found"
+      },
+      "created": "A new Commodity is created with identifier {{ param }}",
+      "updated": "A Commodity is updated with identifier {{ param }}",
+      "deleted": "A Commodity is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Commodity {{ id }}?"
+      },
+      "detail": {
+        "title": "Commodity"
+      },
+      "name": "Name",
+      "remark": "Remark",
+      "dayRent": "Day Rent",
+      "weeklyRent": "Weekly Rent",
+      "monthlyRent": "Monthly Rent",
+      "deposit": "Deposit",
+      "rentalMethod": "Rental Method",
+      "maxRent": "Max Rent",
+      "inventory": "Inventory",
+      "deliveryMethod": "Delivery Method",
+      "status": "Status",
+      "leaseMustRead": "Lease Must Read",
+      "desciption": "Desciption",
+      "photo": "Photo",
+      "specification": "Specification",
+      "tag": "Tag",
+      "category": "Category",
+      "orderItem": "Order Item"
+    }
+  }
+}

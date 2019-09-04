@@ -1,0 +1,122 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-user-order-rse-heading" jhiTranslate="rseApp.userOrder.home.createOrEditLabel">Create or edit a User Order</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.orderNo" for="field_orderNo" [ngbTooltip]="'rseApp.userOrder.help.orderNo' | translate">Order No</label>
+                    <input type="text" class="form-control" name="orderNo" id="field_orderNo"
+                           formControlName="orderNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.requestNo" for="field_requestNo">Request No</label>
+                    <input type="text" class="form-control" name="requestNo" id="field_requestNo"
+                           formControlName="requestNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="PendingPayment">{{'rseApp.OrderStatus.PendingPayment' | translate}}</option>
+                        <option value="PendingConfirming">{{'rseApp.OrderStatus.PendingConfirming' | translate}}</option>
+                        <option value="Stocking">{{'rseApp.OrderStatus.Stocking' | translate}}</option>
+                        <option value="Shipped">{{'rseApp.OrderStatus.Shipped' | translate}}</option>
+                        <option value="Arrived">{{'rseApp.OrderStatus.Arrived' | translate}}</option>
+                        <option value="ToBeReturned">{{'rseApp.OrderStatus.ToBeReturned' | translate}}</option>
+                        <option value="Returning">{{'rseApp.OrderStatus.Returning' | translate}}</option>
+                        <option value="Completed">{{'rseApp.OrderStatus.Completed' | translate}}</option>
+                        <option value="BeExpired">{{'rseApp.OrderStatus.BeExpired' | translate}}</option>
+                        <option value="HasBoughtOut">{{'rseApp.OrderStatus.HasBoughtOut' | translate}}</option>
+                        <option value="Closed">{{'rseApp.OrderStatus.Closed' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.receiver" for="field_receiver">Receiver</label>
+                    <input type="text" class="form-control" name="receiver" id="field_receiver"
+                           formControlName="receiver"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.mobile" for="field_mobile">Mobile</label>
+                    <input type="text" class="form-control" name="mobile" id="field_mobile"
+                           formControlName="mobile"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.province" for="field_province">Province</label>
+                    <input type="text" class="form-control" name="province" id="field_province"
+                           formControlName="province"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                           formControlName="city"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.region" for="field_region">Region</label>
+                    <input type="text" class="form-control" name="region" id="field_region"
+                           formControlName="region"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.storeName" for="field_storeName">Store Name</label>
+                    <input type="text" class="form-control" name="storeName" id="field_storeName"
+                           formControlName="storeName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.logisticsCompany" for="field_logisticsCompany">Logistics Company</label>
+                    <input type="text" class="form-control" name="logisticsCompany" id="field_logisticsCompany"
+                           formControlName="logisticsCompany"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.shipmentNumber" for="field_shipmentNumber">Shipment Number</label>
+                    <input type="text" class="form-control" name="shipmentNumber" id="field_shipmentNumber"
+                           formControlName="shipmentNumber"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.paymentMethod" for="field_paymentMethod">Payment Method</label>
+                    <input type="text" class="form-control" name="paymentMethod" id="field_paymentMethod"
+                           formControlName="paymentMethod"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.freight" for="field_freight">Freight</label>
+                    <input type="number" class="form-control" name="freight" id="field_freight"
+                           formControlName="freight"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.processingOpinions" for="field_processingOpinions">Processing Opinions</label>
+                    <input type="text" class="form-control" name="processingOpinions" id="field_processingOpinions"
+                           formControlName="processingOpinions"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.userOrder.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user').value?.id ? editForm.get('user').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

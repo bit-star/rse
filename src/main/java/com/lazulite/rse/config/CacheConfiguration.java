@@ -43,6 +43,29 @@ public class CacheConfiguration {
             createCache(cm, com.lazulite.rse.domain.User.class.getName());
             createCache(cm, com.lazulite.rse.domain.Authority.class.getName());
             createCache(cm, com.lazulite.rse.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.lazulite.rse.domain.AlipayFundAuthInfo.class.getName());
+            createCache(cm, com.lazulite.rse.domain.AlipayFreezeRequest.class.getName());
+            createCache(cm, com.lazulite.rse.domain.AlipayFreezeResponse.class.getName());
+            createCache(cm, com.lazulite.rse.domain.ShippingAddress.class.getName());
+            createCache(cm, com.lazulite.rse.domain.Commodity.class.getName());
+            createCache(cm, com.lazulite.rse.domain.Commodity.class.getName() + ".photos");
+            createCache(cm, com.lazulite.rse.domain.Commodity.class.getName() + ".specifications");
+            createCache(cm, com.lazulite.rse.domain.Commodity.class.getName() + ".tags");
+            createCache(cm, com.lazulite.rse.domain.Commodity.class.getName() + ".orderItems");
+            createCache(cm, com.lazulite.rse.domain.Category.class.getName());
+            createCache(cm, com.lazulite.rse.domain.Category.class.getName() + ".commodities");
+            createCache(cm, com.lazulite.rse.domain.Photo.class.getName());
+            createCache(cm, com.lazulite.rse.domain.Specification.class.getName());
+            createCache(cm, com.lazulite.rse.domain.UserOrder.class.getName());
+            createCache(cm, com.lazulite.rse.domain.UserOrder.class.getName() + ".orderItems");
+            createCache(cm, com.lazulite.rse.domain.UserOrder.class.getName() + ".alipayFreezeRequests");
+            createCache(cm, com.lazulite.rse.domain.UserOrder.class.getName() + ".alipayFreezeResponses");
+            createCache(cm, com.lazulite.rse.domain.UserOrder.class.getName() + ".alipayFundAuthInfos");
+            createCache(cm, com.lazulite.rse.domain.OrderItem.class.getName());
+            createCache(cm, com.lazulite.rse.domain.OrderItem.class.getName() + ".itemLeaseCycles");
+            createCache(cm, com.lazulite.rse.domain.ItemLeaseCycle.class.getName());
+            createCache(cm, com.lazulite.rse.domain.AlipayUser.class.getName());
+            createCache(cm, com.lazulite.rse.domain.Tag.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

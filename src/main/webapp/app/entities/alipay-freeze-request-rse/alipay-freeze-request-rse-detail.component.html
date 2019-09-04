@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="alipayFreezeRequest">
+            <h2><span jhiTranslate="rseApp.alipayFreezeRequest.detail.title">Alipay Freeze Request</span> {{alipayFreezeRequest.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.orderTitle">Order Title</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.orderTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.outOrderNo">Out Order No</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.outOrderNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.outRequestNo">Out Request No</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.outRequestNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.payeeUserId">Payee User Id</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.payeeUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.payeeLogonId">Payee Logon Id</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.payeeLogonId}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.productCode">Product Code</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.productCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.amount">Amount</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.extraParam">Extra Param</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.extraParam}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.notifyUrl">Notify Url</span></dt>
+                <dd>
+                    <span>{{alipayFreezeRequest.notifyUrl}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFreezeRequest.userOrder">User Order</span></dt>
+                <dd>
+                    <div *ngIf="alipayFreezeRequest.userOrder">
+                        <a [routerLink]="['/user-order-rse', alipayFreezeRequest.userOrder?.id, 'view']">{{alipayFreezeRequest.userOrder?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/alipay-freeze-request-rse', alipayFreezeRequest.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

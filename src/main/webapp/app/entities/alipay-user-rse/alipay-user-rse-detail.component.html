@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="alipayUser">
+            <h2><span jhiTranslate="rseApp.alipayUser.detail.title">Alipay User</span> {{alipayUser.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.alipayUser.userId">User Id</span></dt>
+                <dd>
+                    <span>{{alipayUser.userId}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.avatar">Avatar</span></dt>
+                <dd>
+                    <span>{{alipayUser.avatar}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.nickName">Nick Name</span></dt>
+                <dd>
+                    <span>{{alipayUser.nickName}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.mobile">Mobile</span></dt>
+                <dd>
+                    <span>{{alipayUser.mobile}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.gender">Gender</span></dt>
+                <dd>
+                    <span>{{alipayUser.gender}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.countryCode">Country Code</span></dt>
+                <dd>
+                    <span>{{alipayUser.countryCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.province">Province</span></dt>
+                <dd>
+                    <span>{{alipayUser.province}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.city">City</span></dt>
+                <dd>
+                    <span>{{alipayUser.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.accessToken">Access Token</span></dt>
+                <dd>
+                    <span>{{alipayUser.accessToken}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.authTokenType">Auth Token Type</span></dt>
+                <dd>
+                    <span>{{alipayUser.authTokenType}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.expiresIn">Expires In</span></dt>
+                <dd>
+                    <span>{{alipayUser.expiresIn}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.alipayUserId">Alipay User Id</span></dt>
+                <dd>
+                    <span>{{alipayUser.alipayUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.reExpiresIn">Re Expires In</span></dt>
+                <dd>
+                    <span>{{alipayUser.reExpiresIn}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayUser.refreshToken">Refresh Token</span></dt>
+                <dd>
+                    <span>{{alipayUser.refreshToken}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/alipay-user-rse', alipayUser.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

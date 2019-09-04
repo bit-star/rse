@@ -1,0 +1,32 @@
+{
+  "rseApp": {
+    "itemLeaseCycle": {
+      "home": {
+        "title": "Item Lease Cycles",
+        "createLabel": "建立一筆新的 Item Lease Cycle",
+        "createOrEditLabel": "建立或編輯 Item Lease Cycle",
+        "notFound": "No Item Lease Cycles found"
+      },
+      "created": "新的 Item Lease Cycle 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Item Lease Cycle 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Item Lease Cycle 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Item Lease Cycle {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Item Lease Cycle"
+      },
+      "name": "Name",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "inventory": "Inventory",
+      "numberOfPeriods": "Number Of Periods",
+      "deposit": "Deposit",
+      "creditExemption": "Credit Exemption",
+      "rentReceivedNumberOfPeriods": "Rent Received Number Of Periods",
+      "debitedAmount": "Debited Amount",
+      "nextBillDay": "Next Bill Day",
+      "orderItem": "Order Item"
+    }
+  }
+}

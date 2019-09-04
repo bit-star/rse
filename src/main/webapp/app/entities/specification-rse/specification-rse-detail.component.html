@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="specification">
+            <h2><span jhiTranslate="rseApp.specification.detail.title">Specification</span> {{specification.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.specification.name">Name</span></dt>
+                <dd>
+                    <span>{{specification.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.specification.value">Value</span></dt>
+                <dd>
+                    <span>{{specification.value}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.specification.commodity">Commodity</span></dt>
+                <dd>
+                    <div *ngIf="specification.commodity">
+                        <a [routerLink]="['/commodity-rse', specification.commodity?.id, 'view']">{{specification.commodity?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/specification-rse', specification.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

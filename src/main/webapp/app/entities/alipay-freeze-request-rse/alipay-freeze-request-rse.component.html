@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="rseApp.alipayFreezeRequest.home.title">Alipay Freeze Requests</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-alipay-freeze-request-rse" [routerLink]="['/alipay-freeze-request-rse/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="rseApp.alipayFreezeRequest.home.createLabel">
+            Create a new Alipay Freeze Request
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="alipayFreezeRequests?.length === 0">
+        <span jhiTranslate="rseApp.alipayFreezeRequest.home.notFound">No alipayFreezeRequests found</span>
+    </div>
+    <div class="table-responsive" *ngIf="alipayFreezeRequests?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderTitle"><span jhiTranslate="rseApp.alipayFreezeRequest.orderTitle">Order Title</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="outOrderNo"><span jhiTranslate="rseApp.alipayFreezeRequest.outOrderNo">Out Order No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="outRequestNo"><span jhiTranslate="rseApp.alipayFreezeRequest.outRequestNo">Out Request No</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="payeeUserId"><span jhiTranslate="rseApp.alipayFreezeRequest.payeeUserId">Payee User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="payeeLogonId"><span jhiTranslate="rseApp.alipayFreezeRequest.payeeLogonId">Payee Logon Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="productCode"><span jhiTranslate="rseApp.alipayFreezeRequest.productCode">Product Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="amount"><span jhiTranslate="rseApp.alipayFreezeRequest.amount">Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="extraParam"><span jhiTranslate="rseApp.alipayFreezeRequest.extraParam">Extra Param</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="notifyUrl"><span jhiTranslate="rseApp.alipayFreezeRequest.notifyUrl">Notify Url</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userOrder.id"><span jhiTranslate="rseApp.alipayFreezeRequest.userOrder">User Order</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let alipayFreezeRequest of alipayFreezeRequests ;trackBy: trackId">
+                <td><a [routerLink]="['/alipay-freeze-request-rse', alipayFreezeRequest.id, 'view' ]">{{alipayFreezeRequest.id}}</a></td>
+                <td>{{alipayFreezeRequest.orderTitle}}</td>
+                <td>{{alipayFreezeRequest.outOrderNo}}</td>
+                <td>{{alipayFreezeRequest.outRequestNo}}</td>
+                <td>{{alipayFreezeRequest.payeeUserId}}</td>
+                <td>{{alipayFreezeRequest.payeeLogonId}}</td>
+                <td>{{alipayFreezeRequest.productCode}}</td>
+                <td>{{alipayFreezeRequest.amount}}</td>
+                <td>{{alipayFreezeRequest.extraParam}}</td>
+                <td>{{alipayFreezeRequest.notifyUrl}}</td>
+                <td>
+                    <div *ngIf="alipayFreezeRequest.userOrder">
+                        <a [routerLink]="['/user-order-rse', alipayFreezeRequest.userOrder?.id, 'view' ]" >{{alipayFreezeRequest.userOrder?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/alipay-freeze-request-rse', alipayFreezeRequest.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/alipay-freeze-request-rse', alipayFreezeRequest.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/alipay-freeze-request-rse', { outlets: { popup: alipayFreezeRequest.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="alipayFreezeRequests?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "rseApp": {
+    "CommodityStatus": {
+      "null": "",
+      "OnLine": "OnLine",
+      "OffLine": "OffLine"
+    }
+  }
+}

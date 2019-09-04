@@ -14,6 +14,30 @@
     <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094154_added_entity_AlipayFundAuthInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094155_added_entity_AlipayFreezeRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094156_added_entity_AlipayFreezeResponse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094157_added_entity_ShippingAddress.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094158_added_entity_Commodity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094159_added_entity_Category.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094200_added_entity_Photo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094201_added_entity_Specification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094202_added_entity_UserOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094203_added_entity_OrderItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094204_added_entity_ItemLeaseCycle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094205_added_entity_AlipayUser.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094206_added_entity_Tag.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190904094154_added_entity_constraints_AlipayFundAuthInfo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094155_added_entity_constraints_AlipayFreezeRequest.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094156_added_entity_constraints_AlipayFreezeResponse.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094157_added_entity_constraints_ShippingAddress.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094158_added_entity_constraints_Commodity.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094200_added_entity_constraints_Photo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094201_added_entity_constraints_Specification.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094202_added_entity_constraints_UserOrder.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094203_added_entity_constraints_OrderItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094204_added_entity_constraints_ItemLeaseCycle.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190904094206_added_entity_constraints_Tag.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

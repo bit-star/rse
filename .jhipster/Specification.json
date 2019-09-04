@@ -1,0 +1,32 @@
+{
+    "name": "Specification",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "commodity",
+            "otherEntityRelationshipName": "specification",
+            "relationshipName": "commodity",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094201",
+    "entityTableName": "specification",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

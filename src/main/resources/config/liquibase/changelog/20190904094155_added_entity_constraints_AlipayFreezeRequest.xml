@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity AlipayFreezeRequest.
+    -->
+    <changeSet id="20190904094155-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_order_id"
+                                 baseTableName="alipay_freeze_request"
+                                 constraintName="fk_alipay_freeze_request_user_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_order"/>
+
+    </changeSet>
+</databaseChangeLog>

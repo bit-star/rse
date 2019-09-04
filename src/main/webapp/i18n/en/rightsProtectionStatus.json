@@ -1,0 +1,9 @@
+{
+  "rseApp": {
+    "RightsProtectionStatus": {
+      "null": "",
+      "Normal": "Normal",
+      "Objection": "Objection"
+    }
+  }
+}

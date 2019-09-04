@@ -1,0 +1,89 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="rseApp.itemLeaseCycle.home.title">Item Lease Cycles</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-item-lease-cycle-rse" [routerLink]="['/item-lease-cycle-rse/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="rseApp.itemLeaseCycle.home.createLabel">
+            Create a new Item Lease Cycle
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="itemLeaseCycles?.length === 0">
+        <span jhiTranslate="rseApp.itemLeaseCycle.home.notFound">No itemLeaseCycles found</span>
+    </div>
+    <div class="table-responsive" *ngIf="itemLeaseCycles?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="rseApp.itemLeaseCycle.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="startTime"><span jhiTranslate="rseApp.itemLeaseCycle.startTime">Start Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="endTime"><span jhiTranslate="rseApp.itemLeaseCycle.endTime">End Time</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inventory"><span jhiTranslate="rseApp.itemLeaseCycle.inventory">Inventory</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numberOfPeriods"><span jhiTranslate="rseApp.itemLeaseCycle.numberOfPeriods">Number Of Periods</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deposit"><span jhiTranslate="rseApp.itemLeaseCycle.deposit">Deposit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="creditExemption"><span jhiTranslate="rseApp.itemLeaseCycle.creditExemption">Credit Exemption</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rentReceivedNumberOfPeriods"><span jhiTranslate="rseApp.itemLeaseCycle.rentReceivedNumberOfPeriods">Rent Received Number Of Periods</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="debitedAmount"><span jhiTranslate="rseApp.itemLeaseCycle.debitedAmount">Debited Amount</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nextBillDay"><span jhiTranslate="rseApp.itemLeaseCycle.nextBillDay">Next Bill Day</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="orderItem.id"><span jhiTranslate="rseApp.itemLeaseCycle.orderItem">Order Item</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let itemLeaseCycle of itemLeaseCycles ;trackBy: trackId">
+                <td><a [routerLink]="['/item-lease-cycle-rse', itemLeaseCycle.id, 'view' ]">{{itemLeaseCycle.id}}</a></td>
+                <td>{{itemLeaseCycle.name}}</td>
+                <td>{{itemLeaseCycle.startTime | date:'medium'}}</td>
+                <td>{{itemLeaseCycle.endTime | date:'medium'}}</td>
+                <td>{{itemLeaseCycle.inventory}}</td>
+                <td>{{itemLeaseCycle.numberOfPeriods}}</td>
+                <td>{{itemLeaseCycle.deposit}}</td>
+                <td>{{itemLeaseCycle.creditExemption}}</td>
+                <td>{{itemLeaseCycle.rentReceivedNumberOfPeriods}}</td>
+                <td>{{itemLeaseCycle.debitedAmount}}</td>
+                <td>{{itemLeaseCycle.nextBillDay | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="itemLeaseCycle.orderItem">
+                        <a [routerLink]="['/order-item-rse', itemLeaseCycle.orderItem?.id, 'view' ]" >{{itemLeaseCycle.orderItem?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/item-lease-cycle-rse', itemLeaseCycle.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/item-lease-cycle-rse', itemLeaseCycle.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/item-lease-cycle-rse', { outlets: { popup: itemLeaseCycle.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="itemLeaseCycles?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

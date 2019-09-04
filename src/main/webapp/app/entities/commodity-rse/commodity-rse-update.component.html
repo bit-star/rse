@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-commodity-rse-heading" jhiTranslate="rseApp.commodity.home.createOrEditLabel">Create or edit a Commodity</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.remark" for="field_remark">Remark</label>
+                    <input type="text" class="form-control" name="remark" id="field_remark"
+                           formControlName="remark"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.dayRent" for="field_dayRent">Day Rent</label>
+                    <input type="number" class="form-control" name="dayRent" id="field_dayRent"
+                           formControlName="dayRent"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.weeklyRent" for="field_weeklyRent">Weekly Rent</label>
+                    <input type="number" class="form-control" name="weeklyRent" id="field_weeklyRent"
+                           formControlName="weeklyRent"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.monthlyRent" for="field_monthlyRent">Monthly Rent</label>
+                    <input type="number" class="form-control" name="monthlyRent" id="field_monthlyRent"
+                           formControlName="monthlyRent"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.deposit" for="field_deposit">Deposit</label>
+                    <input type="number" class="form-control" name="deposit" id="field_deposit"
+                           formControlName="deposit"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.rentalMethod" for="field_rentalMethod">Rental Method</label>
+                    <input type="text" class="form-control" name="rentalMethod" id="field_rentalMethod"
+                           formControlName="rentalMethod"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.maxRent" for="field_maxRent">Max Rent</label>
+                    <input type="number" class="form-control" name="maxRent" id="field_maxRent"
+                           formControlName="maxRent"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.inventory" for="field_inventory">Inventory</label>
+                    <input type="number" class="form-control" name="inventory" id="field_inventory"
+                           formControlName="inventory"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.deliveryMethod" for="field_deliveryMethod">Delivery Method</label>
+                    <select class="form-control" name="deliveryMethod" formControlName="deliveryMethod" id="field_deliveryMethod">
+                        <option value="ExpressDelivery">{{'rseApp.DeliveryMethod.ExpressDelivery' | translate}}</option>
+                        <option value="PickUp">{{'rseApp.DeliveryMethod.PickUp' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="OnLine">{{'rseApp.CommodityStatus.OnLine' | translate}}</option>
+                        <option value="OffLine">{{'rseApp.CommodityStatus.OffLine' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.leaseMustRead" for="field_leaseMustRead">Lease Must Read</label>
+                    <input type="text" class="form-control" name="leaseMustRead" id="field_leaseMustRead"
+                           formControlName="leaseMustRead"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.desciption" for="field_desciption">Desciption</label>
+                    <input type="text" class="form-control" name="desciption" id="field_desciption"
+                           formControlName="desciption"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.commodity.category" for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" formControlName="category">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoryOption.id === editForm.get('category').value?.id ? editForm.get('category').value : categoryOption" *ngFor="let categoryOption of categories; trackBy: trackCategoryById">{{categoryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="rseApp.commodity.home.title">Commodities</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-commodity-rse" [routerLink]="['/commodity-rse/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="rseApp.commodity.home.createLabel">
+            Create a new Commodity
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="commodities?.length === 0">
+        <span jhiTranslate="rseApp.commodity.home.notFound">No commodities found</span>
+    </div>
+    <div class="table-responsive" *ngIf="commodities?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="name"><span jhiTranslate="rseApp.commodity.name">Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="remark"><span jhiTranslate="rseApp.commodity.remark">Remark</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dayRent"><span jhiTranslate="rseApp.commodity.dayRent">Day Rent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="weeklyRent"><span jhiTranslate="rseApp.commodity.weeklyRent">Weekly Rent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="monthlyRent"><span jhiTranslate="rseApp.commodity.monthlyRent">Monthly Rent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deposit"><span jhiTranslate="rseApp.commodity.deposit">Deposit</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rentalMethod"><span jhiTranslate="rseApp.commodity.rentalMethod">Rental Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="maxRent"><span jhiTranslate="rseApp.commodity.maxRent">Max Rent</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="inventory"><span jhiTranslate="rseApp.commodity.inventory">Inventory</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="deliveryMethod"><span jhiTranslate="rseApp.commodity.deliveryMethod">Delivery Method</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="status"><span jhiTranslate="rseApp.commodity.status">Status</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="leaseMustRead"><span jhiTranslate="rseApp.commodity.leaseMustRead">Lease Must Read</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="desciption"><span jhiTranslate="rseApp.commodity.desciption">Desciption</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="category.id"><span jhiTranslate="rseApp.commodity.category">Category</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let commodity of commodities ;trackBy: trackId">
+                <td><a [routerLink]="['/commodity-rse', commodity.id, 'view' ]">{{commodity.id}}</a></td>
+                <td>{{commodity.name}}</td>
+                <td>{{commodity.remark}}</td>
+                <td>{{commodity.dayRent}}</td>
+                <td>{{commodity.weeklyRent}}</td>
+                <td>{{commodity.monthlyRent}}</td>
+                <td>{{commodity.deposit}}</td>
+                <td>{{commodity.rentalMethod}}</td>
+                <td>{{commodity.maxRent}}</td>
+                <td>{{commodity.inventory}}</td>
+                <td jhiTranslate="{{'rseApp.DeliveryMethod.' + commodity.deliveryMethod}}">{{commodity.deliveryMethod}}</td>
+                <td jhiTranslate="{{'rseApp.CommodityStatus.' + commodity.status}}">{{commodity.status}}</td>
+                <td>{{commodity.leaseMustRead}}</td>
+                <td>{{commodity.desciption}}</td>
+                <td>
+                    <div *ngIf="commodity.category">
+                        <a [routerLink]="['/category-rse', commodity.category?.id, 'view' ]" >{{commodity.category?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/commodity-rse', commodity.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/commodity-rse', commodity.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/commodity-rse', { outlets: { popup: commodity.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="commodities?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

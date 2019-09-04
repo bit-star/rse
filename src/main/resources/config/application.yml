@@ -57,7 +57,7 @@ management:
 
 spring:
   application:
-    name: rse
+    name: rs
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by maven when building the JAR file
@@ -72,9 +72,9 @@ spring:
   jpa:
     open-in-view: false
     properties:
-      hibernate.jdbc.time_zone: UTC
+      hibernate.jdbc.time_zone: Asia/Shanghai
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
       naming:
         physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
         implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
@@ -87,23 +87,26 @@ spring:
       enabled: false
   task:
     execution:
-      thread-name-prefix: rse-task-
+      thread-name-prefix: rs-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: rse-scheduling-
+      thread-name-prefix: rs-scheduling-
       pool:
         size: 2
   thymeleaf:
     mode: HTML
+  liquibase:
+    enabled: false
 
 server:
   servlet:
     session:
       cookie:
         http-only: true
+    context-path: /rs
 
 # Properties to be exposed on the /info management endpoint
 info:
@@ -118,7 +121,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'rseApp'
+    name: 'rsApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #     allowed-origins: "*"
@@ -128,11 +131,11 @@ jhipster:
   #     allow-credentials: true
   #     max-age: 1800
   mail:
-    from: rse@localhost
+    from: rs@localhost
   swagger:
     default-include-pattern: /api/.*
-    title: rse API
-    description: rse API documentation
+    title: rs API
+    description: rs API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:
@@ -150,3 +153,20 @@ jhipster:
 # ===================================================================
 
 # application:
+
+
+
+
+application:
+  alipay:
+    gateway: https://openapi.alipay.com/gateway.do
+    appconfig:
+      #应用的私钥，需要保管好，应用的公钥存储在支付宝服务端
+      privatekey: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCCjdml0Yvf9SFuhqHxRR2Ele+dABib73ggOXpsqkbV4m3LSrODd2QRqmmuwxkPP/Ok4zKZwM3jilVdkgztcJI8e+45PsXvs54tJ1mKIDFpLQYzBmSwChF0Gn/oGQMttMMN8rgo/aP1gafSUPmpjqU9GyCyC8PXmKsG9p8FaqYGdk+eMvV3GNz5FTnDEfxFJ/OtSpZ2LrEvEIicazteU0wY8WG7iSx0lQVrjZrjqIXrxFVVxf0N/p1xZPZKFKjvnJk/hh7m8bsUR1+RhzS0MCvHKoLILbG7HxLHjmDc7Tj6vFYOyppZgzkxUKh+W8/5krCrF0h3+B33EGkPyeOt87RxAgMBAAECggEAYKg28K6AubIaK2NgOGnsXcJIYdu1XJXiQTFs81DqGuaGVVGcMIRPQUkC75GgVwsJDxXq26zEgmdjpmBAU/bZPhCfIiDYmQxJ2rJcd4g4LN9ZzKM6Hp+FpokME8GY+djv5L7EHA0Vu+lfX7X18dQbgG86OLe/KjrsvL4QpAj+nJ8hHdE69aZueS2cpKqiCwFEjtMytYAFT9OVyUepJZ27Oafl+2VENn4RIIyYQDTADVY/ot5wOVMle1QiQFBrENICxdGsNZxaSEKnjHw2FN1R+5u8mpxsqySRNEqndBLI1qTTmfizIodD5CxnDnzs5M5KX/vs5nPJFwdyrw0WY+ioBQKBgQDMKrcCdxohEPgFRtB0El5yIUT1/1Xw62Qa6aylHvoLY9LHtd3H7IGcsXkSJLNoylK+INDjtdon6wirPEW1oL7i22ScL/Y4HMZ6wVGBI5ns4nDhlptXM3VTOWfsMWQ1R14P0+OpCHBADqfz/88x5yteRliYipr5ZJ2GiN6uPqrvHwKBgQCjst53ENmbDgBFourj1x0lARgJl2l4ICEVmWP/98Ii8s0m0q4ndlzSgOOdk67krSA/60QmWd76xlBRmAmtIpgc3SE9ysJs1JpHKJBk3dj1Af+KrG4VoHWXr05GivhXBJ29JKQL/cSoh9YplNSIlCART9LdDoJ+mpTlWjSQmDc6bwKBgHl+Ra9i3pqktWK2dB9OOwOhhp74ldSqzsQxH7qWx2b1vR14vQRWWf67oXdJfbWzCC/56TRIKAyvEVaMpFLj2BO5SJKk+9kCTp4H4g999v/+8/taGxB2H7Aprgzgi2glEvVKOuSAkAOedRV+uXZRwP310IzdlkEoPZEsa4623hMzAoGAeJ3WP4MB47boSmcljeW1ystIi+CtzN5XolOYlEVZHWkr8lwwCFG1SUHA9R2ZM1PBPHe8ikmT+9Fd4xEUqCaiUDo7QQ2CPrBUUPQ5mKjCMJ1dTi+JGZRWsQJxuZayL2PuWiyCV3ePjOIx0gegplYGXtsjMtB7JJAAABJ8QsJ1hy8CgYAkrJUbinp15hdjA5gFsp6h0wBpMsJEF0SESk1ifURi/HR+B3qrX9unREkD05MhMh1yVKAsOh/mTLrXk7puLxtxGSWMbePuK1/nxuSNi0kCLEFal5iH85LjveIzPuWeDxzp/c9Sz3LhAPJgQzYtB3F47Twkq1A28p+TYmaBam7nwA==
+      #支付宝提供给这个应用的公钥，私钥存储在支付宝服务端中
+      #      publickey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjM7alvSTNvX3Y1mxb5AHtZICQMPrGoC1mp61qt0ZYK4D1HVhSgA3ItyHaBgqjlDMvICYIOdNS822kmVR7HWeoY5E5kmHehNE5sp9s+ry+aq4g8Wb/wq13MLcGUJ1Nw3uXrp+7dPxWP/rmhXY2XeR+T3K0G7onBiXvubqKHGchd0IuRuVQH0yHuRdAgfAypmIZxQsmrWNh2n6aIUL1vLlot4bjUy/PNy6qcjH4MURVU55aQClSK8Scwd9dL+3f/evjIFOeojbO+CBP97TglazoFgzdpGsYzwdsVppd2gDDeMqtLrgz/zzdgJFXP73vyE7807hOTfuV5xoEjKh594A8QIDAQAB
+      # 开放平台申请应用的Id
+      appid: 2019082066289920
+      appPublicCertPath: /Users/chenjunfu/code/rs/src/main/resources/cert/appCertPublicKey_2019082066289920.crt
+      alipayPublicCertPath: /Users/chenjunfu/code/rs/src/main/resources/cert/alipayCertPublicKey_RSA2.crt
+      alipayRootCertPath: /Users/chenjunfu/code/rs/src/main/resources/cert/alipayRootCert.crt

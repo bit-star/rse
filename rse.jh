@@ -1,0 +1,278 @@
+    entity AlipayFundAuthInfo{
+        code String,
+        msg String,
+        subCode String,
+        subMsg String,
+        body String,
+        paramsStr String,
+        amount String,
+        authNo String,
+        creditAmount String,
+        extraParam String,
+        fundAmount String,
+        gmtCreateStr String,
+        gmtTransStr String,
+        operationId String,
+        operationType String,
+        orderTitle String,
+        outOrderNo String,
+        outRequestNo String,
+        payerLogonId String,
+        payerUserId String,
+        preAuthType String,
+        remark String,
+        restAmount String,
+        restCreditAmount String,
+        restFundAmount String,
+        status String,
+        totalFreezeAmount String,
+        totalFreezeCreditAmount String,
+        totalFreezeFundAmount String,
+        totalPayAmount String,
+        totalPayCreditAmount String,
+        totalPayFundAmount String,
+        transCurrency String
+        }
+
+
+        entity AlipayFreezeRequest{
+        orderTitle String,
+        outOrderNo String,
+        outRequestNo String,
+        payeeUserId String,
+        payeeLogonId String,
+        productCode String,
+        amount String,
+        extraParam String,
+        notifyUrl String
+        }
+
+        entity AlipayFreezeResponse{
+        code String,
+        msg String,
+        subCode String,
+        subMsg String,
+        body String,
+        paramsStr String,
+        amount String,
+        authNo String,
+        creditAmount String,
+        fundAmount String,
+        gmtTrans String,
+        operationId String,
+        outOrderNo String,
+        outRequestNo String,
+        payerUserId String,
+        preAuthType String,
+        status String
+        }
+
+
+
+
+        // an ignored comment
+        /** not an ignored comment */
+        entity ShippingAddress {
+        receiver String,
+        moblie String,
+        province String,
+        city String,
+        region String,
+        address String
+        }
+
+
+        entity Commodity {
+        name String,
+        remark String,
+        dayRent BigDecimal,
+        weeklyRent BigDecimal,
+        monthlyRent BigDecimal
+        deposit BigDecimal,
+        rentalMethod String,
+        maxRent BigDecimal,
+        inventory Long,
+        deliveryMethod DeliveryMethod,
+        status CommodityStatus,
+        leaseMustRead String,
+        desciption String,
+
+        // 1-* Photo
+        // 1-* Specification
+        // * -1 Category
+
+    }
+
+        entity Category{
+        name String
+        order Long
+        }
+
+        entity Photo {
+        originalImage String,
+        thumbnail String,
+        width Long,
+        height Long,
+        rankOrder Long
+        }
+
+        entity Specification {
+        name String,
+        value String
+        }
+
+        entity UserOrder {
+        /**
+        * 订单编号
+        */
+        orderNo String,
+        requestNo String,
+        status OrderStatus,
+        receiver String,
+        mobile String,
+        province String,
+        city String,
+        region String,
+        address String,
+        storeName String,
+        logisticsCompany String,
+        shipmentNumber String,
+        paymentMethod String,
+        freight BigDecimal,
+        description String,
+        processingOpinions String
+        // 1-* OrderItem
+        }
+
+
+        entity OrderItem{
+        unitPrice BigDecimal,
+        actuallyPaid BigDecimal,
+        rightsProtectionStatus  RightsProtectionStatus
+        // 1-* LeaseCycle
+        // *-1 Commodity
+        }
+
+
+
+        entity ItemLeaseCycle {
+        name String,
+        startTime Instant,
+        endTime Instant,
+        inventory Long,
+        numberOfPeriods Long,
+        deposit BigDecimal,
+        creditExemption BigDecimal,
+        rentReceivedNumberOfPeriods Long,
+        debitedAmount BigDecimal,
+        nextBillDay Instant,
+        }
+
+        entity AlipayUser{
+        userId String ,
+        avatar String,
+        nickName String ,
+        mobile String,
+        gender String,
+        countryCode String,
+        province String,
+        city String,
+        accessToken String,
+        authTokenType String ,
+        expiresIn String ,
+        alipayUserId String,
+        reExpiresIn String ,
+        refreshToken String
+        // 1-* Order
+        // 1- * ShippingAddress
+        }
+
+        enum RightsProtectionStatus{
+        Normal, Objection
+        }
+
+        enum OrderStatus {
+        //待付款
+        PendingPayment,
+        //已支付，确认中
+        PendingConfirming,
+        //备货中
+        Stocking,
+        //已发货
+        Shipped,
+        //已送达
+        Arrived,
+        //待归还
+        ToBeReturned,
+        //归还中
+        Returning,
+        //已完成
+        Completed,
+        //已到期
+        BeExpired,
+        //已买断
+        HasBoughtOut,
+        //已关闭
+        Closed
+
+    }
+
+
+
+
+        enum CommodityStatus {
+        OnLine, OffLine
+        }
+
+        enum DeliveryMethod {
+        ExpressDelivery, PickUp
+        }
+
+        entity Tag{
+        name String,
+        icon String,
+        remark String
+        }
+
+        // defining multiple OneToMany relationships with comments
+        relationship OneToMany {
+
+
+        UserOrder  to OrderItem,
+
+        OrderItem to ItemLeaseCycle,
+
+        Commodity to Photo,
+
+        Commodity to Specification,
+
+        Commodity to Tag,
+
+        UserOrder to AlipayFreezeRequest,
+
+        UserOrder to AlipayFreezeResponse,
+
+        UserOrder to AlipayFundAuthInfo
+
+    }
+
+        relationship ManyToOne {
+        OrderItem to Commodity,
+        Commodity to Category,
+        UserOrder to User,
+        ShippingAddress to User
+        }
+
+
+
+
+        paginate * with pagination
+
+        // Use Data Transfert Objects (DTO)
+        // dto * with mapstruct
+
+        // Set service options to all except few
+        service all with serviceClass
+
+        // Set an angular suffix
+        angularSuffix * with rse

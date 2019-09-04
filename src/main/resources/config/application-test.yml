@@ -1,0 +1,142 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+#
+# This configuration overrides the application.yml file.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+logging:
+  level:
+    ROOT: DEBUG
+    io.github.jhipster: DEBUG
+    com.lazulite.rs: DEBUG
+
+spring:
+  profiles:
+    active: dev
+    include:
+      - swagger
+      # Uncomment to activate TLS for the dev profile
+      #- tls
+  devtools:
+    restart:
+      enabled: true
+      additional-exclude: .h2.server.properties
+    livereload:
+      enabled: false # we use Webpack dev server + BrowserSync for livereload
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://47.103.80.26:3306/rs?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: admin
+    password: QQEJ6Dfk
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    show-sql: true
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.connection.provider_disables_autocommit: true
+      hibernate.cache.use_second_level_cache: true
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+  liquibase:
+    # Remove 'faker' if you do not want the sample data to be loaded automatically
+    contexts: dev, faker
+  mail:
+    host: localhost
+    port: 25
+    username:
+    password:
+  messages:
+    cache-duration: PT1S # 1 second, see the ISO 8601 standard
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8080
+
+# ===================================================================
+# JHipster specific properties
+#
+# Full reference is available at: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+jhipster:
+  cache: # Cache configuration
+    ehcache: # Ehcache configuration
+      time-to-live-seconds: 3600 # By default objects stay 1 hour in the cache
+      max-entries: 100 # Number of objects in each cache entry
+  # CORS is only enabled by default with the "dev" profile, so BrowserSync can access the API
+  cors:
+    allowed-origins: '*'
+    allowed-methods: '*'
+    allowed-headers: '*'
+    exposed-headers: 'Authorization,Link,X-Total-Count'
+    allow-credentials: true
+    max-age: 1800
+  security:
+    authentication:
+      jwt:
+        # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
+        base64-secret: MzRmZDEzM2Y5MzkzZGRhYzJmMGY5NzViNTQwZTljMzU1N2Y0Y2NlZTYyOTFhNTA2ZDRlYWVkYzBlYTdmMzVhNTM0NWNhYWEzNGIwZmIwZGMzYTI1ZTFiMGQ3YzMyY2UyOTgwYjcyZGMzNDg4MjcyN2E1MjAxNGY0M2Q4ODNlYTM=
+        # Token is valid 24 hours
+        token-validity-in-seconds: 86400
+        token-validity-in-seconds-for-remember-me: 2592000
+  mail: # specific JHipster mail property, for standard properties see MailProperties
+    base-url: http://127.0.0.1:8080
+  metrics:
+    logs: # Reports metrics in the logs
+      enabled: false
+      report-frequency: 60 # in seconds
+  logging:
+    use-json-format: false # By default, logs are not in Json format
+    logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
+      enabled: false
+      host: localhost
+      port: 5000
+      queue-size: 512
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# application:
+
+application:
+  alipay:
+    gateway: https://openapi.alipay.com/gateway.do
+    appconfig:
+      #应用的私钥，需要保管好，应用的公钥存储在支付宝服务端
+      privatekey: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCCjdml0Yvf9SFuhqHxRR2Ele+dABib73ggOXpsqkbV4m3LSrODd2QRqmmuwxkPP/Ok4zKZwM3jilVdkgztcJI8e+45PsXvs54tJ1mKIDFpLQYzBmSwChF0Gn/oGQMttMMN8rgo/aP1gafSUPmpjqU9GyCyC8PXmKsG9p8FaqYGdk+eMvV3GNz5FTnDEfxFJ/OtSpZ2LrEvEIicazteU0wY8WG7iSx0lQVrjZrjqIXrxFVVxf0N/p1xZPZKFKjvnJk/hh7m8bsUR1+RhzS0MCvHKoLILbG7HxLHjmDc7Tj6vFYOyppZgzkxUKh+W8/5krCrF0h3+B33EGkPyeOt87RxAgMBAAECggEAYKg28K6AubIaK2NgOGnsXcJIYdu1XJXiQTFs81DqGuaGVVGcMIRPQUkC75GgVwsJDxXq26zEgmdjpmBAU/bZPhCfIiDYmQxJ2rJcd4g4LN9ZzKM6Hp+FpokME8GY+djv5L7EHA0Vu+lfX7X18dQbgG86OLe/KjrsvL4QpAj+nJ8hHdE69aZueS2cpKqiCwFEjtMytYAFT9OVyUepJZ27Oafl+2VENn4RIIyYQDTADVY/ot5wOVMle1QiQFBrENICxdGsNZxaSEKnjHw2FN1R+5u8mpxsqySRNEqndBLI1qTTmfizIodD5CxnDnzs5M5KX/vs5nPJFwdyrw0WY+ioBQKBgQDMKrcCdxohEPgFRtB0El5yIUT1/1Xw62Qa6aylHvoLY9LHtd3H7IGcsXkSJLNoylK+INDjtdon6wirPEW1oL7i22ScL/Y4HMZ6wVGBI5ns4nDhlptXM3VTOWfsMWQ1R14P0+OpCHBADqfz/88x5yteRliYipr5ZJ2GiN6uPqrvHwKBgQCjst53ENmbDgBFourj1x0lARgJl2l4ICEVmWP/98Ii8s0m0q4ndlzSgOOdk67krSA/60QmWd76xlBRmAmtIpgc3SE9ysJs1JpHKJBk3dj1Af+KrG4VoHWXr05GivhXBJ29JKQL/cSoh9YplNSIlCART9LdDoJ+mpTlWjSQmDc6bwKBgHl+Ra9i3pqktWK2dB9OOwOhhp74ldSqzsQxH7qWx2b1vR14vQRWWf67oXdJfbWzCC/56TRIKAyvEVaMpFLj2BO5SJKk+9kCTp4H4g999v/+8/taGxB2H7Aprgzgi2glEvVKOuSAkAOedRV+uXZRwP310IzdlkEoPZEsa4623hMzAoGAeJ3WP4MB47boSmcljeW1ystIi+CtzN5XolOYlEVZHWkr8lwwCFG1SUHA9R2ZM1PBPHe8ikmT+9Fd4xEUqCaiUDo7QQ2CPrBUUPQ5mKjCMJ1dTi+JGZRWsQJxuZayL2PuWiyCV3ePjOIx0gegplYGXtsjMtB7JJAAABJ8QsJ1hy8CgYAkrJUbinp15hdjA5gFsp6h0wBpMsJEF0SESk1ifURi/HR+B3qrX9unREkD05MhMh1yVKAsOh/mTLrXk7puLxtxGSWMbePuK1/nxuSNi0kCLEFal5iH85LjveIzPuWeDxzp/c9Sz3LhAPJgQzYtB3F47Twkq1A28p+TYmaBam7nwA==
+      #支付宝提供给这个应用的公钥，私钥存储在支付宝服务端中
+      #      publickey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjM7alvSTNvX3Y1mxb5AHtZICQMPrGoC1mp61qt0ZYK4D1HVhSgA3ItyHaBgqjlDMvICYIOdNS822kmVR7HWeoY5E5kmHehNE5sp9s+ry+aq4g8Wb/wq13MLcGUJ1Nw3uXrp+7dPxWP/rmhXY2XeR+T3K0G7onBiXvubqKHGchd0IuRuVQH0yHuRdAgfAypmIZxQsmrWNh2n6aIUL1vLlot4bjUy/PNy6qcjH4MURVU55aQClSK8Scwd9dL+3f/evjIFOeojbO+CBP97TglazoFgzdpGsYzwdsVppd2gDDeMqtLrgz/zzdgJFXP73vyE7807hOTfuV5xoEjKh594A8QIDAQAB
+      # 开放平台申请应用的Id
+      appid: 2019082066289920
+      appPublicCertPath: /home/admin/cert/appCertPublicKey_2019082066289920.crt
+      alipayPublicCertPath: /home/admin/cert/alipayCertPublicKey_RSA2.crt
+      alipayRootCertPath: /home/admin/cert/alipayRootCert.crt
+
+

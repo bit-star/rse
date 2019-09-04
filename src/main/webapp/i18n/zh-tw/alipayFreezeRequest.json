@@ -1,0 +1,31 @@
+{
+  "rseApp": {
+    "alipayFreezeRequest": {
+      "home": {
+        "title": "Alipay Freeze Requests",
+        "createLabel": "建立一筆新的 Alipay Freeze Request",
+        "createOrEditLabel": "建立或編輯 Alipay Freeze Request",
+        "notFound": "No Alipay Freeze Requests found"
+      },
+      "created": "新的 Alipay Freeze Request 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Alipay Freeze Request 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Alipay Freeze Request 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Alipay Freeze Request {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Alipay Freeze Request"
+      },
+      "orderTitle": "Order Title",
+      "outOrderNo": "Out Order No",
+      "outRequestNo": "Out Request No",
+      "payeeUserId": "Payee User Id",
+      "payeeLogonId": "Payee Logon Id",
+      "productCode": "Product Code",
+      "amount": "Amount",
+      "extraParam": "Extra Param",
+      "notifyUrl": "Notify Url",
+      "userOrder": "User Order"
+    }
+  }
+}

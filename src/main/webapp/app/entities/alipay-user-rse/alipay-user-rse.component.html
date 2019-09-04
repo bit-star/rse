@@ -1,0 +1,91 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="rseApp.alipayUser.home.title">Alipay Users</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-alipay-user-rse" [routerLink]="['/alipay-user-rse/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="rseApp.alipayUser.home.createLabel">
+            Create a new Alipay User
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="alipayUsers?.length === 0">
+        <span jhiTranslate="rseApp.alipayUser.home.notFound">No alipayUsers found</span>
+    </div>
+    <div class="table-responsive" *ngIf="alipayUsers?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userId"><span jhiTranslate="rseApp.alipayUser.userId">User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="avatar"><span jhiTranslate="rseApp.alipayUser.avatar">Avatar</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nickName"><span jhiTranslate="rseApp.alipayUser.nickName">Nick Name</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="mobile"><span jhiTranslate="rseApp.alipayUser.mobile">Mobile</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="gender"><span jhiTranslate="rseApp.alipayUser.gender">Gender</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="countryCode"><span jhiTranslate="rseApp.alipayUser.countryCode">Country Code</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="province"><span jhiTranslate="rseApp.alipayUser.province">Province</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="city"><span jhiTranslate="rseApp.alipayUser.city">City</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="accessToken"><span jhiTranslate="rseApp.alipayUser.accessToken">Access Token</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="authTokenType"><span jhiTranslate="rseApp.alipayUser.authTokenType">Auth Token Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="expiresIn"><span jhiTranslate="rseApp.alipayUser.expiresIn">Expires In</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="alipayUserId"><span jhiTranslate="rseApp.alipayUser.alipayUserId">Alipay User Id</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reExpiresIn"><span jhiTranslate="rseApp.alipayUser.reExpiresIn">Re Expires In</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="refreshToken"><span jhiTranslate="rseApp.alipayUser.refreshToken">Refresh Token</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let alipayUser of alipayUsers ;trackBy: trackId">
+                <td><a [routerLink]="['/alipay-user-rse', alipayUser.id, 'view' ]">{{alipayUser.id}}</a></td>
+                <td>{{alipayUser.userId}}</td>
+                <td>{{alipayUser.avatar}}</td>
+                <td>{{alipayUser.nickName}}</td>
+                <td>{{alipayUser.mobile}}</td>
+                <td>{{alipayUser.gender}}</td>
+                <td>{{alipayUser.countryCode}}</td>
+                <td>{{alipayUser.province}}</td>
+                <td>{{alipayUser.city}}</td>
+                <td>{{alipayUser.accessToken}}</td>
+                <td>{{alipayUser.authTokenType}}</td>
+                <td>{{alipayUser.expiresIn}}</td>
+                <td>{{alipayUser.alipayUserId}}</td>
+                <td>{{alipayUser.reExpiresIn}}</td>
+                <td>{{alipayUser.refreshToken}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/alipay-user-rse', alipayUser.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/alipay-user-rse', alipayUser.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/alipay-user-rse', { outlets: { popup: alipayUser.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="alipayUsers?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+{
+    "name": "AlipayFundAuthInfo",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "msg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subMsg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "body",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paramsStr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creditAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "extraParam",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fundAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gmtCreateStr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gmtTransStr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operationId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operationType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "orderTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outOrderNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outRequestNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payerLogonId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payerUserId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "preAuthType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remark",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "restAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "restCreditAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "restFundAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalFreezeAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalFreezeCreditAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalFreezeFundAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalPayAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalPayCreditAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalPayFundAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "transCurrency",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userOrder",
+            "otherEntityRelationshipName": "alipayFundAuthInfo",
+            "relationshipName": "userOrder",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094154",
+    "entityTableName": "alipay_fund_auth_info",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

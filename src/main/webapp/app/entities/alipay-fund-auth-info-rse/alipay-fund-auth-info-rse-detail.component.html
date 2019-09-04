@@ -1,0 +1,161 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="alipayFundAuthInfo">
+            <h2><span jhiTranslate="rseApp.alipayFundAuthInfo.detail.title">Alipay Fund Auth Info</span> {{alipayFundAuthInfo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.code">Code</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.msg">Msg</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.msg}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.subCode">Sub Code</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.subCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.subMsg">Sub Msg</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.subMsg}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.body">Body</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.body}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.paramsStr">Params Str</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.paramsStr}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.amount">Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.amount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.authNo">Auth No</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.authNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.creditAmount">Credit Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.creditAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.extraParam">Extra Param</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.extraParam}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.fundAmount">Fund Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.fundAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.gmtCreateStr">Gmt Create Str</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.gmtCreateStr}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.gmtTransStr">Gmt Trans Str</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.gmtTransStr}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.operationId">Operation Id</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.operationId}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.operationType">Operation Type</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.operationType}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.orderTitle">Order Title</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.orderTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.outOrderNo">Out Order No</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.outOrderNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.outRequestNo">Out Request No</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.outRequestNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.payerLogonId">Payer Logon Id</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.payerLogonId}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.payerUserId">Payer User Id</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.payerUserId}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.preAuthType">Pre Auth Type</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.preAuthType}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.remark">Remark</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.remark}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.restAmount">Rest Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.restAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.restCreditAmount">Rest Credit Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.restCreditAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.restFundAmount">Rest Fund Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.restFundAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.status">Status</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeAmount">Total Freeze Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.totalFreezeAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeCreditAmount">Total Freeze Credit Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.totalFreezeCreditAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeFundAmount">Total Freeze Fund Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.totalFreezeFundAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.totalPayAmount">Total Pay Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.totalPayAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.totalPayCreditAmount">Total Pay Credit Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.totalPayCreditAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.totalPayFundAmount">Total Pay Fund Amount</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.totalPayFundAmount}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.transCurrency">Trans Currency</span></dt>
+                <dd>
+                    <span>{{alipayFundAuthInfo.transCurrency}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.alipayFundAuthInfo.userOrder">User Order</span></dt>
+                <dd>
+                    <div *ngIf="alipayFundAuthInfo.userOrder">
+                        <a [routerLink]="['/user-order-rse', alipayFundAuthInfo.userOrder?.id, 'view']">{{alipayFundAuthInfo.userOrder?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/alipay-fund-auth-info-rse', alipayFundAuthInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

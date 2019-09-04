@@ -1,0 +1,35 @@
+{
+  "rseApp": {
+    "alipayUser": {
+      "home": {
+        "title": "Alipay Users",
+        "createLabel": "Create a new Alipay User",
+        "createOrEditLabel": "Create or edit a Alipay User",
+        "notFound": "No Alipay Users found"
+      },
+      "created": "A new Alipay User is created with identifier {{ param }}",
+      "updated": "A Alipay User is updated with identifier {{ param }}",
+      "deleted": "A Alipay User is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Alipay User {{ id }}?"
+      },
+      "detail": {
+        "title": "Alipay User"
+      },
+      "userId": "User Id",
+      "avatar": "Avatar",
+      "nickName": "Nick Name",
+      "mobile": "Mobile",
+      "gender": "Gender",
+      "countryCode": "Country Code",
+      "province": "Province",
+      "city": "City",
+      "accessToken": "Access Token",
+      "authTokenType": "Auth Token Type",
+      "expiresIn": "Expires In",
+      "alipayUserId": "Alipay User Id",
+      "reExpiresIn": "Re Expires In",
+      "refreshToken": "Refresh Token"
+    }
+  }
+}

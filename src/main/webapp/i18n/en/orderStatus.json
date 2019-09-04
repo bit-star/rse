@@ -1,0 +1,18 @@
+{
+  "rseApp": {
+    "OrderStatus": {
+      "null": "",
+      "PendingPayment": "PendingPayment",
+      "PendingConfirming": "PendingConfirming",
+      "Stocking": "Stocking",
+      "Shipped": "Shipped",
+      "Arrived": "Arrived",
+      "ToBeReturned": "ToBeReturned",
+      "Returning": "Returning",
+      "Completed": "Completed",
+      "BeExpired": "BeExpired",
+      "HasBoughtOut": "HasBoughtOut",
+      "Closed": "Closed"
+    }
+  }
+}

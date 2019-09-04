@@ -1,0 +1,39 @@
+{
+  "rseApp": {
+    "alipayFreezeResponse": {
+      "home": {
+        "title": "Alipay Freeze Responses",
+        "createLabel": "Create a new Alipay Freeze Response",
+        "createOrEditLabel": "Create or edit a Alipay Freeze Response",
+        "notFound": "No Alipay Freeze Responses found"
+      },
+      "created": "A new Alipay Freeze Response is created with identifier {{ param }}",
+      "updated": "A Alipay Freeze Response is updated with identifier {{ param }}",
+      "deleted": "A Alipay Freeze Response is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Alipay Freeze Response {{ id }}?"
+      },
+      "detail": {
+        "title": "Alipay Freeze Response"
+      },
+      "code": "Code",
+      "msg": "Msg",
+      "subCode": "Sub Code",
+      "subMsg": "Sub Msg",
+      "body": "Body",
+      "paramsStr": "Params Str",
+      "amount": "Amount",
+      "authNo": "Auth No",
+      "creditAmount": "Credit Amount",
+      "fundAmount": "Fund Amount",
+      "gmtTrans": "Gmt Trans",
+      "operationId": "Operation Id",
+      "outOrderNo": "Out Order No",
+      "outRequestNo": "Out Request No",
+      "payerUserId": "Payer User Id",
+      "preAuthType": "Pre Auth Type",
+      "status": "Status",
+      "userOrder": "User Order"
+    }
+  }
+}

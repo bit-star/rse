@@ -1,0 +1,27 @@
+{
+  "rseApp": {
+    "photo": {
+      "home": {
+        "title": "Photos",
+        "createLabel": "建立一筆新的 Photo",
+        "createOrEditLabel": "建立或編輯 Photo",
+        "notFound": "No Photos found"
+      },
+      "created": "新的 Photo 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Photo 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Photo 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Photo {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Photo"
+      },
+      "originalImage": "Original Image",
+      "thumbnail": "Thumbnail",
+      "width": "Width",
+      "height": "Height",
+      "rankOrder": "Rank Order",
+      "commodity": "Commodity"
+    }
+  }
+}

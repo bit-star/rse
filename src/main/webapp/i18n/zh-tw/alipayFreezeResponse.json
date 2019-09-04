@@ -1,0 +1,39 @@
+{
+  "rseApp": {
+    "alipayFreezeResponse": {
+      "home": {
+        "title": "Alipay Freeze Responses",
+        "createLabel": "建立一筆新的 Alipay Freeze Response",
+        "createOrEditLabel": "建立或編輯 Alipay Freeze Response",
+        "notFound": "No Alipay Freeze Responses found"
+      },
+      "created": "新的 Alipay Freeze Response 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Alipay Freeze Response 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Alipay Freeze Response 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Alipay Freeze Response {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Alipay Freeze Response"
+      },
+      "code": "Code",
+      "msg": "Msg",
+      "subCode": "Sub Code",
+      "subMsg": "Sub Msg",
+      "body": "Body",
+      "paramsStr": "Params Str",
+      "amount": "Amount",
+      "authNo": "Auth No",
+      "creditAmount": "Credit Amount",
+      "fundAmount": "Fund Amount",
+      "gmtTrans": "Gmt Trans",
+      "operationId": "Operation Id",
+      "outOrderNo": "Out Order No",
+      "outRequestNo": "Out Request No",
+      "payerUserId": "Payer User Id",
+      "preAuthType": "Pre Auth Type",
+      "status": "Status",
+      "userOrder": "User Order"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "rseApp": {
+    "alipayFundAuthInfo": {
+      "home": {
+        "title": "Alipay Fund Auth Infos",
+        "createLabel": "Create a new Alipay Fund Auth Info",
+        "createOrEditLabel": "Create or edit a Alipay Fund Auth Info",
+        "notFound": "No Alipay Fund Auth Infos found"
+      },
+      "created": "A new Alipay Fund Auth Info is created with identifier {{ param }}",
+      "updated": "A Alipay Fund Auth Info is updated with identifier {{ param }}",
+      "deleted": "A Alipay Fund Auth Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Alipay Fund Auth Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Alipay Fund Auth Info"
+      },
+      "code": "Code",
+      "msg": "Msg",
+      "subCode": "Sub Code",
+      "subMsg": "Sub Msg",
+      "body": "Body",
+      "paramsStr": "Params Str",
+      "amount": "Amount",
+      "authNo": "Auth No",
+      "creditAmount": "Credit Amount",
+      "extraParam": "Extra Param",
+      "fundAmount": "Fund Amount",
+      "gmtCreateStr": "Gmt Create Str",
+      "gmtTransStr": "Gmt Trans Str",
+      "operationId": "Operation Id",
+      "operationType": "Operation Type",
+      "orderTitle": "Order Title",
+      "outOrderNo": "Out Order No",
+      "outRequestNo": "Out Request No",
+      "payerLogonId": "Payer Logon Id",
+      "payerUserId": "Payer User Id",
+      "preAuthType": "Pre Auth Type",
+      "remark": "Remark",
+      "restAmount": "Rest Amount",
+      "restCreditAmount": "Rest Credit Amount",
+      "restFundAmount": "Rest Fund Amount",
+      "status": "Status",
+      "totalFreezeAmount": "Total Freeze Amount",
+      "totalFreezeCreditAmount": "Total Freeze Credit Amount",
+      "totalFreezeFundAmount": "Total Freeze Fund Amount",
+      "totalPayAmount": "Total Pay Amount",
+      "totalPayCreditAmount": "Total Pay Credit Amount",
+      "totalPayFundAmount": "Total Pay Fund Amount",
+      "transCurrency": "Trans Currency",
+      "userOrder": "User Order"
+    }
+  }
+}

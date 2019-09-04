@@ -1,0 +1,9 @@
+{
+  "rseApp": {
+    "DeliveryMethod": {
+      "null": "",
+      "ExpressDelivery": "ExpressDelivery",
+      "PickUp": "PickUp"
+    }
+  }
+}

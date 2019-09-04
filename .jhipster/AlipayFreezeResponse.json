@@ -1,0 +1,92 @@
+{
+    "name": "AlipayFreezeResponse",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "msg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subMsg",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "body",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "paramsStr",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "creditAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fundAmount",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gmtTrans",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operationId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outOrderNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "outRequestNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "payerUserId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "preAuthType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "userOrder",
+            "otherEntityRelationshipName": "alipayFreezeResponse",
+            "relationshipName": "userOrder",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094156",
+    "entityTableName": "alipay_freeze_response",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

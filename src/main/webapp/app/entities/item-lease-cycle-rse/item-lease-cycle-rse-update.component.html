@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-item-lease-cycle-rse-heading" jhiTranslate="rseApp.itemLeaseCycle.home.createOrEditLabel">Create or edit a Item Lease Cycle</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.startTime" for="field_startTime">Start Time</label>
+                    <div class="d-flex">
+                        <input id="field_startTime" type="datetime-local" class="form-control" name="startTime" formControlName="startTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.endTime" for="field_endTime">End Time</label>
+                    <div class="d-flex">
+                        <input id="field_endTime" type="datetime-local" class="form-control" name="endTime" formControlName="endTime" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.inventory" for="field_inventory">Inventory</label>
+                    <input type="number" class="form-control" name="inventory" id="field_inventory"
+                           formControlName="inventory"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.numberOfPeriods" for="field_numberOfPeriods">Number Of Periods</label>
+                    <input type="number" class="form-control" name="numberOfPeriods" id="field_numberOfPeriods"
+                           formControlName="numberOfPeriods"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.deposit" for="field_deposit">Deposit</label>
+                    <input type="number" class="form-control" name="deposit" id="field_deposit"
+                           formControlName="deposit"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.creditExemption" for="field_creditExemption">Credit Exemption</label>
+                    <input type="number" class="form-control" name="creditExemption" id="field_creditExemption"
+                           formControlName="creditExemption"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.rentReceivedNumberOfPeriods" for="field_rentReceivedNumberOfPeriods">Rent Received Number Of Periods</label>
+                    <input type="number" class="form-control" name="rentReceivedNumberOfPeriods" id="field_rentReceivedNumberOfPeriods"
+                           formControlName="rentReceivedNumberOfPeriods"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.debitedAmount" for="field_debitedAmount">Debited Amount</label>
+                    <input type="number" class="form-control" name="debitedAmount" id="field_debitedAmount"
+                           formControlName="debitedAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.nextBillDay" for="field_nextBillDay">Next Bill Day</label>
+                    <div class="d-flex">
+                        <input id="field_nextBillDay" type="datetime-local" class="form-control" name="nextBillDay" formControlName="nextBillDay" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.itemLeaseCycle.orderItem" for="field_orderItem">Order Item</label>
+                    <select class="form-control" id="field_orderItem" name="orderItem" formControlName="orderItem">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="orderItemOption.id === editForm.get('orderItem').value?.id ? editForm.get('orderItem').value : orderItemOption" *ngFor="let orderItemOption of orderitems; trackBy: trackOrderItemById">{{orderItemOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

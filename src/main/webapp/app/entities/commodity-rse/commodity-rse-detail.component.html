@@ -1,0 +1,81 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commodity">
+            <h2><span jhiTranslate="rseApp.commodity.detail.title">Commodity</span> {{commodity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="rseApp.commodity.name">Name</span></dt>
+                <dd>
+                    <span>{{commodity.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.remark">Remark</span></dt>
+                <dd>
+                    <span>{{commodity.remark}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.dayRent">Day Rent</span></dt>
+                <dd>
+                    <span>{{commodity.dayRent}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.weeklyRent">Weekly Rent</span></dt>
+                <dd>
+                    <span>{{commodity.weeklyRent}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.monthlyRent">Monthly Rent</span></dt>
+                <dd>
+                    <span>{{commodity.monthlyRent}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.deposit">Deposit</span></dt>
+                <dd>
+                    <span>{{commodity.deposit}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.rentalMethod">Rental Method</span></dt>
+                <dd>
+                    <span>{{commodity.rentalMethod}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.maxRent">Max Rent</span></dt>
+                <dd>
+                    <span>{{commodity.maxRent}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.inventory">Inventory</span></dt>
+                <dd>
+                    <span>{{commodity.inventory}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.deliveryMethod">Delivery Method</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'rseApp.DeliveryMethod.' + commodity.deliveryMethod}}">{{commodity.deliveryMethod}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'rseApp.CommodityStatus.' + commodity.status}}">{{commodity.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.leaseMustRead">Lease Must Read</span></dt>
+                <dd>
+                    <span>{{commodity.leaseMustRead}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.desciption">Desciption</span></dt>
+                <dd>
+                    <span>{{commodity.desciption}}</span>
+                </dd>
+                <dt><span jhiTranslate="rseApp.commodity.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="commodity.category">
+                        <a [routerLink]="['/category-rse', commodity.category?.id, 'view']">{{commodity.category?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commodity-rse', commodity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

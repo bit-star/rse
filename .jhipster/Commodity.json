@@ -1,0 +1,102 @@
+{
+    "name": "Commodity",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "remark",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dayRent",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "weeklyRent",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "monthlyRent",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "deposit",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "rentalMethod",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxRent",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "inventory",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "deliveryMethod",
+            "fieldType": "DeliveryMethod",
+            "fieldValues": "ExpressDelivery,PickUp"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "CommodityStatus",
+            "fieldValues": "OnLine,OffLine"
+        },
+        {
+            "fieldName": "leaseMustRead",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "desciption",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "photo",
+            "otherEntityRelationshipName": "commodity",
+            "relationshipName": "photo"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "specification",
+            "otherEntityRelationshipName": "commodity",
+            "relationshipName": "specification"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tag",
+            "otherEntityRelationshipName": "commodity",
+            "relationshipName": "tag"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "commodity",
+            "relationshipName": "category",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "orderItem",
+            "otherEntityRelationshipName": "commodity",
+            "relationshipName": "orderItem"
+        }
+    ],
+    "changelogDate": "20190904094158",
+    "entityTableName": "commodity",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}

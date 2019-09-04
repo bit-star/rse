@@ -1,0 +1,196 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-alipay-fund-auth-info-rse-heading" jhiTranslate="rseApp.alipayFundAuthInfo.home.createOrEditLabel">Create or edit a Alipay Fund Auth Info</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.code" for="field_code">Code</label>
+                    <input type="text" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.msg" for="field_msg">Msg</label>
+                    <input type="text" class="form-control" name="msg" id="field_msg"
+                           formControlName="msg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.subCode" for="field_subCode">Sub Code</label>
+                    <input type="text" class="form-control" name="subCode" id="field_subCode"
+                           formControlName="subCode"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.subMsg" for="field_subMsg">Sub Msg</label>
+                    <input type="text" class="form-control" name="subMsg" id="field_subMsg"
+                           formControlName="subMsg"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.body" for="field_body">Body</label>
+                    <input type="text" class="form-control" name="body" id="field_body"
+                           formControlName="body"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.paramsStr" for="field_paramsStr">Params Str</label>
+                    <input type="text" class="form-control" name="paramsStr" id="field_paramsStr"
+                           formControlName="paramsStr"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.amount" for="field_amount">Amount</label>
+                    <input type="text" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.authNo" for="field_authNo">Auth No</label>
+                    <input type="text" class="form-control" name="authNo" id="field_authNo"
+                           formControlName="authNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.creditAmount" for="field_creditAmount">Credit Amount</label>
+                    <input type="text" class="form-control" name="creditAmount" id="field_creditAmount"
+                           formControlName="creditAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.extraParam" for="field_extraParam">Extra Param</label>
+                    <input type="text" class="form-control" name="extraParam" id="field_extraParam"
+                           formControlName="extraParam"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.fundAmount" for="field_fundAmount">Fund Amount</label>
+                    <input type="text" class="form-control" name="fundAmount" id="field_fundAmount"
+                           formControlName="fundAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.gmtCreateStr" for="field_gmtCreateStr">Gmt Create Str</label>
+                    <input type="text" class="form-control" name="gmtCreateStr" id="field_gmtCreateStr"
+                           formControlName="gmtCreateStr"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.gmtTransStr" for="field_gmtTransStr">Gmt Trans Str</label>
+                    <input type="text" class="form-control" name="gmtTransStr" id="field_gmtTransStr"
+                           formControlName="gmtTransStr"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.operationId" for="field_operationId">Operation Id</label>
+                    <input type="text" class="form-control" name="operationId" id="field_operationId"
+                           formControlName="operationId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.operationType" for="field_operationType">Operation Type</label>
+                    <input type="text" class="form-control" name="operationType" id="field_operationType"
+                           formControlName="operationType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.orderTitle" for="field_orderTitle">Order Title</label>
+                    <input type="text" class="form-control" name="orderTitle" id="field_orderTitle"
+                           formControlName="orderTitle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.outOrderNo" for="field_outOrderNo">Out Order No</label>
+                    <input type="text" class="form-control" name="outOrderNo" id="field_outOrderNo"
+                           formControlName="outOrderNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.outRequestNo" for="field_outRequestNo">Out Request No</label>
+                    <input type="text" class="form-control" name="outRequestNo" id="field_outRequestNo"
+                           formControlName="outRequestNo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.payerLogonId" for="field_payerLogonId">Payer Logon Id</label>
+                    <input type="text" class="form-control" name="payerLogonId" id="field_payerLogonId"
+                           formControlName="payerLogonId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.payerUserId" for="field_payerUserId">Payer User Id</label>
+                    <input type="text" class="form-control" name="payerUserId" id="field_payerUserId"
+                           formControlName="payerUserId"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.preAuthType" for="field_preAuthType">Pre Auth Type</label>
+                    <input type="text" class="form-control" name="preAuthType" id="field_preAuthType"
+                           formControlName="preAuthType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.remark" for="field_remark">Remark</label>
+                    <input type="text" class="form-control" name="remark" id="field_remark"
+                           formControlName="remark"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.restAmount" for="field_restAmount">Rest Amount</label>
+                    <input type="text" class="form-control" name="restAmount" id="field_restAmount"
+                           formControlName="restAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.restCreditAmount" for="field_restCreditAmount">Rest Credit Amount</label>
+                    <input type="text" class="form-control" name="restCreditAmount" id="field_restCreditAmount"
+                           formControlName="restCreditAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.restFundAmount" for="field_restFundAmount">Rest Fund Amount</label>
+                    <input type="text" class="form-control" name="restFundAmount" id="field_restFundAmount"
+                           formControlName="restFundAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeAmount" for="field_totalFreezeAmount">Total Freeze Amount</label>
+                    <input type="text" class="form-control" name="totalFreezeAmount" id="field_totalFreezeAmount"
+                           formControlName="totalFreezeAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeCreditAmount" for="field_totalFreezeCreditAmount">Total Freeze Credit Amount</label>
+                    <input type="text" class="form-control" name="totalFreezeCreditAmount" id="field_totalFreezeCreditAmount"
+                           formControlName="totalFreezeCreditAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.totalFreezeFundAmount" for="field_totalFreezeFundAmount">Total Freeze Fund Amount</label>
+                    <input type="text" class="form-control" name="totalFreezeFundAmount" id="field_totalFreezeFundAmount"
+                           formControlName="totalFreezeFundAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.totalPayAmount" for="field_totalPayAmount">Total Pay Amount</label>
+                    <input type="text" class="form-control" name="totalPayAmount" id="field_totalPayAmount"
+                           formControlName="totalPayAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.totalPayCreditAmount" for="field_totalPayCreditAmount">Total Pay Credit Amount</label>
+                    <input type="text" class="form-control" name="totalPayCreditAmount" id="field_totalPayCreditAmount"
+                           formControlName="totalPayCreditAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.totalPayFundAmount" for="field_totalPayFundAmount">Total Pay Fund Amount</label>
+                    <input type="text" class="form-control" name="totalPayFundAmount" id="field_totalPayFundAmount"
+                           formControlName="totalPayFundAmount"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.transCurrency" for="field_transCurrency">Trans Currency</label>
+                    <input type="text" class="form-control" name="transCurrency" id="field_transCurrency"
+                           formControlName="transCurrency"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="rseApp.alipayFundAuthInfo.userOrder" for="field_userOrder">User Order</label>
+                    <select class="form-control" id="field_userOrder" name="userOrder" formControlName="userOrder">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOrderOption.id === editForm.get('userOrder').value?.id ? editForm.get('userOrder').value : userOrderOption" *ngFor="let userOrderOption of userorders; trackBy: trackUserOrderById">{{userOrderOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

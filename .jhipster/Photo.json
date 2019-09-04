@@ -1,0 +1,44 @@
+{
+    "name": "Photo",
+    "fields": [
+        {
+            "fieldName": "originalImage",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbnail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "width",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "rankOrder",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "commodity",
+            "otherEntityRelationshipName": "photo",
+            "relationshipName": "commodity",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190904094200",
+    "entityTableName": "photo",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "angularJSSuffix": "rse"
+}
